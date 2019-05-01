@@ -1,1 +1,1 @@
-# The-barbershop_heroku_jawsDB
+# The-Barbershop
