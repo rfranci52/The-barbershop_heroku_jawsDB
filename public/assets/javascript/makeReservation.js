@@ -35,18 +35,20 @@ $(document).ready(function () {
       // Show the modal with alerting the user to fill out all fields
       $("#pleaseFillAllFieldsModal").modal("toggle");
 
-      return;
+      return; 
     }
 
     // Show the modal confirming the user's appointment before submitting
     $("#confirmModal").modal("toggle");
+
     // Populate Confirm Modal with appointment data
-    $("#modalConfirmReservationDate").html(bodyInput.val()[5] + bodyInput.val()[6] + bodyInput.val()[7] + bodyInput.val()[8] + bodyInput.val()[9]);
+    $("#modalConfirmReservationBarber").html(postCategorySelect.val());
+    $("#modalConfirmReservationDate").html(bodyInput.val());
     $("#modalConfirmReservationTime").html(postTime.val());
 
   })
 
-  $(".confirmButton").click(function () {
+  $(".confirmButton").click(function() {
 
     // Constructing a newPost object to hand to the database
     var newPost = {
@@ -115,7 +117,10 @@ $(document).ready(function () {
   function reservationSuccessModal() {
     $("#successModal").modal("toggle");
 
-    $(".successModalCloseButton").click(function () {
+    // Include Barber name in Success Modal
+    $("#modalSuccessReservationBarber").html(postCategorySelect.val());
+    
+    $(".successModalCloseButton").click(function() {
       window.location.href = "/makeReservation";
     });
   }

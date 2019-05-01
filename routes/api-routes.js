@@ -34,7 +34,7 @@ module.exports = function (app) {
 
         where: {
           reservation_date: {
-            [Op.gte]: nowDate
+            [Op.gt]: nowDate
           }
 
 
@@ -105,12 +105,10 @@ module.exports = function (app) {
           dbReservation
         });
       })
-      .catch(function (err) {
-        // handle error;
-        console.log("appointment already booked")
-        $("#pleaseFillAllFieldsModal").modal("toggle");
-
-      });
+    // .catch(function (err) {
+    //   // handle error;
+    //   console.log("appointment already booked")
+    // });
   });
 
 
